@@ -1,0 +1,36 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+
+#
+# Complete the 'pilesOfBoxes' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts INTEGER_ARRAY boxesInPiles as parameter.
+#
+
+def pilesOfBoxes(boxesInPiles):
+
+    steps = 0
+    boxesInPiles = sorted(boxesInPiles, reverse=True)
+
+    low = 0
+    high = len(boxesInPiles)-1
+
+    while low < high:
+        
+        if boxesInPiles[low+1] < boxesInPiles[low]:
+            steps += low+1
+        low += 1
+
+    return steps
+        
+        
+
+    # Write your code here
+if __name__ == '__main__':
